@@ -36,7 +36,7 @@ jobs:
       
       # Build website
       - name: Build site
-        run: render("./src.dashboard.Rmd", flex_dashboard(), output_dir = './dist')
+        run: rmarkdown::render("./src/dashboard.Rmd", flex_dashboard(), output_dir = ./dist')
         shell: Rscript {0}
         
       - name: Echo all content
