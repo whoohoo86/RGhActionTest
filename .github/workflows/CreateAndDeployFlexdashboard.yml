@@ -20,16 +20,9 @@ jobs:
       
       # Setup R
       - uses: r-lib/actions/setup-r@master
-  
-      # Setup Pandoc
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-r-dependencies@master
       
-      - name: Echo all content
-        run : "ls -la ."
-      
-      - name: Echo workspace content
-        run : "ls -la $GITHUB_WORKSPACE"
-      
+      # Build website
       - name: Build site
         run: rmarkdown::render_site()
         shell: Rscript {0}
