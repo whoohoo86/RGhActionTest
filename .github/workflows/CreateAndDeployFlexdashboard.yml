@@ -34,8 +34,11 @@ jobs:
         run: rmarkdown::render('./src/dashboard.Rmd', flexdashboard::flex_dashboard(), output_dir = './dist')
         shell: Rscript {0}
         
-      - name: Echo all content
-        run : "ls -la ."
+      - name: Echo website files
+        run : "ls -la ./dist"
       
-      - name: Echo workspace content
-        run : "ls -la $GITHUB_WORKSPACE"
+      - name: Deploy website 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: './dist' # The folder the action should deploy.
