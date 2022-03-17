@@ -16,14 +16,23 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
       
       # Setup R
-      - uses: r-lib/actions/setup-r@master
-      - uses: r-lib/actions/setup-pandoc@master
-      - uses: r-lib/actions/setup-r-dependencies@master
+      - name: Setup R
+        uses: r-lib/actions/setup-r@master
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@master
+      - name: Setup dependencies
+        uses: r-lib/actions/setup-r-dependencies@master
         with:
           working-directory: './src'
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: r-${{ hashFiles('DESCRIPTION') }}
       
       # Build website
       - name: Build site
