@@ -21,6 +21,8 @@ jobs:
       # Setup R
       - uses: r-lib/actions/setup-r@master
       - uses: r-lib/actions/setup-r-dependencies@master
+        with:
+          working-directory: './src'
       
       # Build website
       - name: Build site
