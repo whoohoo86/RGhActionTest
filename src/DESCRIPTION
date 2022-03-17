@@ -1,0 +1,9 @@
+Package: FlexdashboardExample
+Type: Package
+Title: Flexdashboard Example
+Version: 0.1
+Description: Flexdashboard Example
+Encoding: UTF-8
+Depends: R (>= 3.0.2)
+Imports:
+  flexdashboard
