@@ -20,13 +20,14 @@ jobs:
       
       # Setup R
       - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-pandoc@master
       - uses: r-lib/actions/setup-r-dependencies@master
         with:
           working-directory: './src'
       
       # Build website
       - name: Build site
-        run: rmarkdown::render_site()
+        run: render("./src.dashboard.Rmd", flex_dashboard(), output_dir = './dist')
         shell: Rscript {0}
         
       - name: Echo all content
