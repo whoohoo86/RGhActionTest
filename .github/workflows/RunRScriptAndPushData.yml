@@ -22,8 +22,6 @@ jobs:
       # Setup R
       - name: Setup R
         uses: r-lib/actions/setup-r@master
-      - name: Setup pandoc
-        uses: r-lib/actions/setup-pandoc@master
       - name: Setup dependencies
         run: install.packages(c('readr', 'openxlsx', 'dplyr', 'tidyr'), repos='http://cran.us.r-project.org')
         shell: Rscript {0}
