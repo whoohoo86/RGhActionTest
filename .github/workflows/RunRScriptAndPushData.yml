@@ -23,7 +23,7 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@master
       - name: Setup dependencies
-        run: install.packages(c('readr', 'openxlsx', 'dplyr', 'tidyr'), repos='http://cran.us.r-project.org')
+        run: install.packages(c('readr', 'openxlsx', 'dplyr', 'tidyr'), repos='http://cran.us.r-project.org', type="binary")
         shell: Rscript {0}
       
       # Run RScript
