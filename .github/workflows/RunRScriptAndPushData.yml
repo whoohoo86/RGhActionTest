@@ -30,8 +30,7 @@ jobs:
       
       # Run RScript
       - name: Run Script
-        run: ./scriptSrc/github_action_hospinc.R
-        shell: Rscript {0}
+        run: Rscript ./scriptSrc/github_action_hospinc.R
         
       - name: Echo files
         run : "ls -la ./scriptSrc"
