@@ -1,0 +1,12 @@
+Package: RDataScriptExample
+Type: Package
+Title: R Data Script Example
+Version: 0.1
+Description: R script to create data
+Encoding: UTF-8
+Depends: R (>= 3.0.2)
+Imports:
+  readr,
+  openxlsx,
+  dplyr,
+  tidyr
