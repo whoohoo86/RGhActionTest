@@ -26,7 +26,6 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@master
         with:
           working-directory: './src/data_script'
-        shell: Rscript {0}
       
       # Run RScript
       - name: Run Script
