@@ -28,13 +28,9 @@ jobs:
       
       # Run RScript
       - name: Run Script
-        run: Rscript ./scriptSrc/github_action_hospinc.R
+        run: Rscript ./src/github_action_hospinc.R
         
-      - name: Echo files
-        run : "ls -la ./scriptSrc"
-        
-      - name: Echo root files
-        run : "ls -la ."
-          
-      #- name: Push created data
-  
+      - name: Commit and push data directory
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: './data/'
