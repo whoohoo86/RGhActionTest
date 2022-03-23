@@ -23,12 +23,14 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@master
       - name: Setup dependencies
-        run: install.packages(c('readr', 'openxlsx', 'dplyr', 'tidyr'), repos='http://cran.us.r-project.org')
+        uses: r-lib/actions/setup-r-dependencies@master
+        with:
+          working-directory: './src/data_script'
         shell: Rscript {0}
       
       # Run RScript
       - name: Run Script
-        run: Rscript ./src/github_action_hospinc.R
+        run: Rscript ./src/data_script/github_action_hospinc.R
         
       - name: Commit and push data directory
         uses: EndBug/add-and-commit@v9

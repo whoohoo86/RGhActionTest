@@ -27,18 +27,18 @@ jobs:
       - name: Setup dependencies
         uses: r-lib/actions/setup-r-dependencies@master
         with:
-          working-directory: './src'
+          working-directory: './src/dashboard'
       
       # Build website
       - name: Build site
-        run: rmarkdown::render('./src/dashboard.Rmd', flexdashboard::flex_dashboard(), output_file = 'index.html', output_dir = './dist')
+        run: rmarkdown::render('./src/dashboard/dashboard.Rmd', flexdashboard::flex_dashboard(), output_file = 'index.html', output_dir = './dist/dashboard')
         shell: Rscript {0}
         
-      - name: Echo website files
-        run : "ls -la ./dist"
+      #- name: Echo website files
+      #  run : "ls -la ./dist/dashboard"
       
       - name: Deploy website 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: './dist' # The folder the action should deploy.
+          folder: './dist/dashboard' # The folder the action should deploy.
